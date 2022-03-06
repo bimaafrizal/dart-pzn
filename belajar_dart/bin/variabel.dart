@@ -13,7 +13,7 @@ void main(List<String> args) {
 
   //final
   ///tidak bisa di rediclare
-  ///nilainya bisa berubbah ketika dicompile tetapi ketika running tidak bisa dirubah
+  ///nilainya bisa berubah ketika dicompile tetapi ketika running tidak bisa dirubah
   ///penulisan final tipeData namaVaribel = nilai
   ///penulisan final namaVariabel = value
   final name3 = "bima rizal";
