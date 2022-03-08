@@ -1,27 +1,15 @@
 void main(List<String> args) async {
-  // MonsterKecoa mk = MonsterKecoa();
-  // Monster mk2 = MonsterIkan();
-  // MonsterKecoa mk3 = MonsterKecoa();
-  // mk.healthPoint = -5;
-  // print("Hero HP: " + mk.healthPoint.toString());
-  // print(mk.eatHuman());
-
   List<Monster> monsters = [];
   monsters.add(MonsterKecoa());
   monsters.add(MonsterIkan());
   monsters.add(MonsterUcoa());
   print("");
   for (Monster m in monsters) {
-    if (m is FlyingMonster) {
-      //print(m.eatHuman());
-      print((m as FlyingMonster).fly());
-      //print(m.swim());
+    if (m is DrinkAbility) {
+      print((m as DrinkAbility).drink());
     }
   }
 
-  //memberi tahu objek jika dia masuk class turunan jika identifier
-  //adalah sebuah class inti
-  //print((mk2 as MonsterIkan).swim());
 }
 
 class Character {
@@ -41,14 +29,6 @@ abstract class Monster extends Character {
   String move();
 }
 
-class MonsterUcoa extends MonsterIkan implements FlyingMonster {
-  @override
-  String fly() {
-    // TODO: implement fly
-    return "Terbang mencari sasaran";
-    throw UnimplementedError();
-  }
-}
 
 class MonsterKecoa extends Monster implements FlyingMonster {
   String fly() => "Syuuuu";
@@ -84,4 +64,20 @@ class MonsterIkan extends Monster {
 ///abstract cuma bisa satu interface bisa banyak
 abstract class FlyingMonster {
   String fly();
+}
+
+//mixin
+//mirip interface tetapi bukan dipaksakan, lebih keditambahkan
+//on digunakan untuk memilih class dan turunan yang diperbolehkan menggunakan mixin
+mixin DrinkAbility on  MonsterIkan{
+  String drink() => "Gluk gluk gluk";
+}
+
+class MonsterUcoa extends MonsterIkan with DrinkAbility implements FlyingMonster {
+  @override
+  String fly() {
+    // TODO: implement fly
+    return "Terbang mencari sasaran";
+    throw UnimplementedError();
+  }
 }
