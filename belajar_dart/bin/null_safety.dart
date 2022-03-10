@@ -48,7 +48,7 @@ void main(List<String> args) {
   //saat mengakses nullable mamber secara default akan memberi peringatan null check
   ////kita bisa mengkases secara aman dengan menambah tanda tanya
   ///hasillnya tetap nullable
-  
+
   int? intNumber;
   double? doubleNumber = intNumber?.toDouble();
   print(doubleNumber);
